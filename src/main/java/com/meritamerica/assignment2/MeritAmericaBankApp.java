@@ -59,6 +59,5 @@ public static void main(String[]args) {
 	System.out.println("Account Holder 3 : "+ah3.toString());
 	
 	System.out.println("Merit Bank Total Balance : "+ MeritBank.totalBalances());
-	
 	}
 }

@@ -4,14 +4,9 @@ public class BankAccount {
 	private double bal;
 	private double iRate;
 	private long accNumber;
-	
+
 	BankAccount(double Balance, double interestRate){
-		this.bal = Balance;
-		this.iRate = interestRate;
-		}
-	
-	BankAccount(long AccountNumber, double Balance, double interestRate){
-		this.accNumber = AccountNumber;
+		this.accNumber = MeritBank.getNextAccountNumber();
 		this.bal = Balance;
 		this.iRate = interestRate;
 		//System.out.println("Inside BankAccount");

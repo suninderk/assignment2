@@ -26,7 +26,7 @@ public class AccountHolder {
 	void setFirstName(String firstName) {
 		this.fN=firstName;
 	}
-	public String getmiddleName(){
+	public String getMiddleName(){
 		return mN;
 	}
 	void setMiddleName(String middleName) {
@@ -45,7 +45,7 @@ public class AccountHolder {
 		this.ssnNumber=SSN;
 	}
 	CheckingAccount addCheckingAccount(double openingBalance) {
-		chk1=new CheckingAccount(MeritBank.getNextAccountNumber(), openingBalance);
+		chk1=new CheckingAccount(openingBalance);
 		if (chk1 != null) {
 			chkArray.add(chk1);
 			return chk1;
@@ -54,12 +54,25 @@ public class AccountHolder {
 		
 	CheckingAccount addCheckingAccount(CheckingAccount checkingAccount) {
 		if (checkingAccount != null) {
-			chkArray.add(checkingAccount);
-			return checkingAccount;
+			if (getCombinedBalance() <250000) {
+				chkArray.add(checkingAccount);
+				return checkingAccount;				
+			} else return null;
 		}else return null;		
 	}
 	CheckingAccount[] getCheckingAccounts() {
-		return (CheckingAccount[])chkArray.toArray();	
+		CheckingAccount[] chka;
+		chka = new CheckingAccount[chkArray.size()];		
+		if (chkArray != null) {
+			Object[] objects = chkArray.toArray();
+		    int i = 0;
+			for (Object obj : objects) {
+		    	System.out.print(obj + " ");
+		    	chka[i] = (CheckingAccount)obj;
+		    	i++;
+		    }
+		}		
+		return chka;
 	}
 	int getNumberOfCheckingAccounts() {
 		return chkArray.size();
@@ -72,7 +85,7 @@ public class AccountHolder {
 		return totalCheckingBalance;
 	}
 	SavingsAccount addSavingsAccount(double openingBalance) {
-		sav1=new SavingsAccount(MeritBank.getNextAccountNumber(), openingBalance);
+		sav1=new SavingsAccount(openingBalance);
 		if (sav1 != null) {
 			savArray.add(sav1);
 			return sav1;
@@ -80,12 +93,25 @@ public class AccountHolder {
 	}
 	SavingsAccount addSavingsAccount(SavingsAccount savingsAccount) {
 		if (savingsAccount != null) {
-			savArray.add(savingsAccount);
-			return savingsAccount;
+			if (getCombinedBalance() <250000) {
+				savArray.add(savingsAccount);
+				return savingsAccount;				
+			}else return null;
 		}else return null;		
 	}
 	SavingsAccount[] getSavingsAccounts() {
-		return (SavingsAccount[])savArray.toArray();
+		SavingsAccount[] sava;
+		sava = new SavingsAccount[savArray.size()];		
+		if (savArray != null) {
+			Object[] objects = savArray.toArray();
+		    int i = 0;
+			for (Object obj : objects) {
+		    	System.out.print(obj + " ");
+		    	sava[i] = (SavingsAccount)obj;
+		    	i++;
+		    }
+		}		
+		return sava;
 	}
 	int getNumberOfSavingsAccounts() {
 		return savArray.size();
@@ -112,7 +138,18 @@ public class AccountHolder {
 		}else return null;			
 	}
 	CDAccount[]getCDAccounts(){
-		return (CDAccount[])cdArray.toArray();	
+		CDAccount[] cda;
+		cda = new CDAccount[cdArray.size()];		
+		if (cdArray != null) {
+			Object[] objects = cdArray.toArray();
+		    int i = 0;
+			for (Object obj : objects) {
+		    	System.out.print(obj + " ");
+		    	cda[i] = (CDAccount)obj;
+		    	i++;
+		    }
+		}
+		return cda;
 	}
 	int getNumberOfCDAccounts() {
 		return cdArray.size();

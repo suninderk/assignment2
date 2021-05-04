@@ -15,10 +15,31 @@ public class MeritBank{
 		mbAccHolderArray.add(accountHolder);
 	}
 	static AccountHolder[] getAccountHolders() {
-		return (AccountHolder[])mbAccHolderArray.toArray();
+		AccountHolder[] a1;
+		a1 = new AccountHolder[mbAccHolderArray.size()];		
+		if (mbAccHolderArray != null) {
+			Object[] objects = mbAccHolderArray.toArray();
+		    int i = 0;
+			for (Object obj : objects) {
+		    	System.out.print(obj + " ");
+		    	a1[i] = (AccountHolder)obj;
+		    	i++;
+		    }
+		}
+		return a1;
 	}
 	static CDOffering[] getCDOfferings(){
-		return (CDOffering[])mbOfferingsArray.toArray();
+		CDOffering[] offer1;
+		offer1 = new CDOffering[5];
+		if (mbOfferingsArray != null) {
+			Object[] objects = mbOfferingsArray.toArray();
+		    int i = 0;
+			for (Object obj : objects) {
+		    	offer1[i] = (CDOffering)obj;
+		    	i++;
+		    }
+		}
+		return offer1;
 	}
 	static CDOffering getBestCDOffering(double depositAmount) {
 		int t=0;
@@ -53,7 +74,9 @@ public class MeritBank{
 	}
 	@SuppressWarnings("null")
 	static void clearCDOfferings() {
-		mbOfferingsArray.clear();
+		if (mbOfferingsArray != null) {
+			mbOfferingsArray.clear();			
+		}
 	}
 	static void setCDOfferings(CDOffering[] offerings) {
 		mbOfferingsArray.clear();
