@@ -35,10 +35,7 @@
 package com.meritamerica.assignment2;
 
 import static org.hamcrest.CoreMatchers.hasItem;
-import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertThat;
 
 import java.util.Arrays;
 
@@ -60,7 +57,6 @@ public class SolutionTest {
     	MeritBank.setCDOfferings(CDOfferings);
     	
     	CDOffering[] fromMeritBankCDOfferings = MeritBank.getCDOfferings();
-
         assertEquals(1, fromMeritBankCDOfferings[0].getTerm());
         assertEquals(1.8/100, fromMeritBankCDOfferings[0].getInterestRate(),0);        
         assertEquals(2, fromMeritBankCDOfferings[1].getTerm(),0);
@@ -73,7 +69,7 @@ public class SolutionTest {
         assertEquals(2.2/100, fromMeritBankCDOfferings[4].getInterestRate(),0);         
 
     }
-    
+   
     @Test    
     public void testAccountHolder() {
     	
@@ -211,6 +207,5 @@ public class SolutionTest {
         assertEquals(11000, accountHolder3.getCombinedBalance(),0);         	    	    	
     	
      }    
-
     
 }
